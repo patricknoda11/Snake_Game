@@ -15,7 +15,7 @@ public class Component {
     }
 
     // setters
-    public void setPosition(Position position) {
+    public void setPosition(int x, int y) {
         // stub
     }
 }

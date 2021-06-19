@@ -14,7 +14,7 @@ public class Game {
 
     // MODIFIES: this
     // EFFECTS: updates game state
-    public void onTick() {
+    public void tick() {
         // stub
     }
 
@@ -47,8 +47,21 @@ public class Game {
         return false;
     }
 
-    private boolean isGameOver() {
+    public boolean isGameOver() {
         return false; // stub
+    }
+
+    // getters
+    public Snake getSnake() {
+        return this.snake;
+    }
+
+    public Food getFood() {
+        return null;
+    }
+
+    public int getScore() {
+        return 0;
     }
 
 }
