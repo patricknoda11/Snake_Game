@@ -1,4 +1,6 @@
 package model;
 
-public class Direction {
+// Represents a direction in the game
+public enum Direction {
+    NORTH, EAST, SOUTH, WEST
 }
