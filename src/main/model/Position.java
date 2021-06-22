@@ -7,33 +7,9 @@ public class Position {
     private int x;
     private int y;
 
-    // constructor
     public Position(int x, int y) {
-        // stub
-    }
-
-    // MODIFIES: this
-    // EFFECTS: increments y position by -1
-    public void moveNorth() {
-        // stub
-    }
-
-    // MODIFIES: this
-    // EFFECTS: increments x position by +1
-    public void moveEast() {
-        // stub
-    }
-
-    // MODIFIES: this
-    // EFFECTS: increments y position by +1
-    public void moveSouth() {
-        // stub
-    }
-
-    // MODIFIES: this
-    // EFFECTS: increments x position by -1
-    public void moveWest() {
-        // stub
+        this.x = x;
+        this.y = y;
     }
 
     @Override
@@ -51,13 +27,20 @@ public class Position {
 
     // getters
     public int getX() {
-        return 0; // stub
-
+        return this.x;
     }
 
     public int getY() {
-        return 0; // stub
+        return this.y;
     }
 
+    // setters
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
 
 }
