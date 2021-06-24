@@ -20,7 +20,7 @@ public class GameTest {
                 this.testSnake.getHead().getPosition());
         assertEquals(Snake.INITIAL_BODY_COMPONENTS, this.testSnake.getBody().size());
         checkBodySetup();
-        assertEquals(Direction.NORTH, this.testSnake.getDirection());
+        assertEquals(Direction.NORTH, this.testSnake.getHead().getDirection());
         assertFalse(this.testGame.isGameOver());
         assertEquals(0, this.testGame.getScore());
     }
@@ -42,7 +42,7 @@ public class GameTest {
         assertEquals(new Position(Snake.INITIAL_X_POSITION, Snake.INITIAL_Y_POSITION - 1),
                 this.testSnake.getHead().getPosition());
         assertEquals(Snake.INITIAL_BODY_COMPONENTS, this.testSnake.getBody().size());
-        assertEquals(Direction.NORTH, this.testSnake.getDirection());
+        assertEquals(Direction.NORTH, this.testSnake.getHead().getDirection());
         assertFalse(this.testGame.isGameOver());
     }
 
@@ -53,7 +53,7 @@ public class GameTest {
 
         assertEquals(new Position(Snake.INITIAL_X_POSITION + 1, Snake.INITIAL_Y_POSITION),
                 this.testSnake.getHead().getPosition());
-        assertEquals(Direction.EAST, this.testSnake.getDirection());
+        assertEquals(Direction.EAST, this.testSnake.getHead().getDirection());
     }
 
     @Test
@@ -64,7 +64,7 @@ public class GameTest {
 
         assertEquals(new Position(Snake.INITIAL_X_POSITION, Snake.INITIAL_Y_POSITION + 1),
                 this.testSnake.getHead().getPosition());
-        assertEquals(Direction.SOUTH, this.testSnake.getDirection());
+        assertEquals(Direction.SOUTH, this.testSnake.getHead().getDirection());
     }
 
     @Test
@@ -74,7 +74,7 @@ public class GameTest {
 
         assertEquals(new Position(Snake.INITIAL_X_POSITION - 1, Snake.INITIAL_Y_POSITION),
                 this.testSnake.getHead().getPosition());
-        assertEquals(Direction.WEST, this.testSnake.getDirection());
+        assertEquals(Direction.WEST, this.testSnake.getHead().getDirection());
     }
 
 
@@ -100,7 +100,7 @@ public class GameTest {
     @Test
     public void testOnTickConsumeFood() {
         // Moves snake one tick away from initial food location
-        for (int i = 1; i < Game.GAME_START_FOOD_Y_POSITION - Snake.INITIAL_X_POSITION; i ++) {
+        for (int i = 1; i < Snake.INITIAL_X_POSITION - Game.START_FOOD_Y_POSITION; i ++) {
             this.testGame.tick();
         }
         assertEquals(0, testGame.getScore());

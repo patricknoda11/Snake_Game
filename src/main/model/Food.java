@@ -1,20 +1,17 @@
 package model;
 
+import ui.GamePanel;
+
 import java.awt.*;
 import java.util.Random;
 
 // Represents a food object in game
 public class Food {
     public static final int POINTS_GAINED_FOR_EACH = 10;
-    public static final Color COLOR  = new Color(255, 165,0);
+    private static final Color COLOR  = new Color(255, 0, 0);
 
-    private Position position;
-
-    // MODIFIES: this
-    // EFFECTS: sets game start food position
-    public void setInitialFoodPosition(int initialXPosition, int initialYPosition) {
-        this.position = new Position(initialXPosition, initialYPosition);
-    }
+    private Position position = new Position(Game.START_FOOD_X_POSITION,
+            Game.START_FOOD_Y_POSITION);                                    // initial food position at game start
 
     // MODIFIES: this
     // EFFECTS: sets random position within Game boundary
@@ -25,4 +22,15 @@ public class Food {
         this.position = new Position(randomXPosition, randomYPosition);
     }
 
+    // MODIFIES:
+    // EFFECTS: todo
+    public void draw(Graphics g) {
+        g.setColor(COLOR);
+        g.fillOval(this.position.getX(), this.position.getY(), GamePanel.UNIT, GamePanel.UNIT);
+    }
+
+    // getter
+    public Position getPosition() {
+        return this.position;
+    }
 }
