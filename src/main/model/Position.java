@@ -1,31 +1,46 @@
 package model;
 
+import java.util.Objects;
+
 // Represents a position within game boundaries
 public class Position {
     private int x;
     private int y;
 
-    // constructor
     public Position(int x, int y) {
-        // stub
+        this.x = x;
+        this.y = y;
     }
 
-    // setters
-    public void setX() {
-        // stub
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Position position = (Position) o;
+        return x == position.x && y == position.y;
     }
 
-    public void setY() {
-        // stub
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 
     // getters
     public int getX() {
-        return 0; // stub
-
+        return this.x;
     }
 
     public int getY() {
-        return 0; // stub
+        return this.y;
     }
+
+    // setters
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
 }
