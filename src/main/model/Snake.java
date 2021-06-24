@@ -1,6 +1,7 @@
 package model;
 
 import ui.GamePanel;
+import ui.SnakeGame;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -10,7 +11,7 @@ public class Snake {
     public static final int INITIAL_X_POSITION = GamePanel.GAME_PANEL_WIDTH / 2;
     public static final int INITIAL_Y_POSITION = GamePanel.GAME_PANEL_HEIGHT / 2;
     public static final Direction INITIAL_DIRECTION = Direction.NORTH;
-    public static final int INITIAL_BODY_COMPONENTS = 2;
+    public static final int INITIAL_BODY_COMPONENTS = 4;
 
     private Component head = new Component(new Position(INITIAL_X_POSITION, INITIAL_Y_POSITION), INITIAL_DIRECTION);
     private LinkedList<Component> body = new LinkedList<>();
@@ -27,8 +28,8 @@ public class Snake {
 
         for (int i = 0; i < INITIAL_BODY_COMPONENTS; i++) {
             this.body.add(new Component(new Position(INITIAL_X_POSITION,
-                    previousComponentYPosition + 1), INITIAL_DIRECTION));
-            previousComponentYPosition ++;
+                    previousComponentYPosition + SnakeGame.UNIT), INITIAL_DIRECTION));
+            previousComponentYPosition += SnakeGame.UNIT;
         }
     }
 

@@ -1,6 +1,6 @@
 package model;
 
-import ui.GamePanel;
+import ui.SnakeGame;
 
 import java.awt.*;
 
@@ -18,34 +18,34 @@ public class Component {
     }
 
     // MODIFIES: this
-    // EFFECTS: increments y position by -1
+    // EFFECTS: increments y position by SnakeGame unit
     public void shiftNorth() {
-        this.position.setY(this.position.getY() - 1);
+        this.position.setY(this.position.getY() - SnakeGame.UNIT);
     }
 
     // MODIFIES: this
-    // EFFECTS: increments x position by +1
+    // EFFECTS: increments x position by SnakeGame unit
     public void shiftEast() {
-        this.position.setX(this.position.getX() + 1);
+        this.position.setX(this.position.getX() + SnakeGame.UNIT);
     }
 
     // MODIFIES: this
-    // EFFECTS: increments y position by +1
+    // EFFECTS: increments y position by SnakeGame unit
     public void shiftSouth() {
-        this.position.setY(this.position.getY() + 1);
+        this.position.setY(this.position.getY() + SnakeGame.UNIT);
     }
 
     // MODIFIES: this
-    // EFFECTS: increments x position by -1
+    // EFFECTS: increments x position by SnakeGame unit
     public void shiftWest() {
-        this.position.setX(this.position.getX() - 1);
+        this.position.setX(this.position.getX() - SnakeGame.UNIT);
     }
 
     // MODIFIES:
     // EFFECTS: todo
     public void draw(Graphics g) {
         g.setColor(SNAKE_COLOR);
-        g.fillOval(this.position.getX(), this.position.getY(), GamePanel.UNIT, GamePanel.UNIT);
+        g.fillRect(this.position.getX(), this.position.getY(), SnakeGame.UNIT, SnakeGame.UNIT);
     }
 
     // getters

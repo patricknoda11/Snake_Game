@@ -1,19 +1,17 @@
 package ui;
 
-import model.Direction;
 import model.Game;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class SnakeGame extends JFrame {
+    public static final int UNIT = 20;
     private static final int GAME_FRAME_WIDTH = 600;
     private static final int GAME_FRAME_HEIGHT = 650;
-    private static final int REFRESH_INTERVAL = 50;
+    private static final int REFRESH_INTERVAL = 200;
 
     private Game game;
     private GamePanel gamePanel;
@@ -25,7 +23,6 @@ public class SnakeGame extends JFrame {
         initializeJComponents();
 
         addGameObserver();
-        addKeyListener(new GameKeyAdapter());
         setVisible(true);
         initializeTimer();
     }
@@ -63,8 +60,10 @@ public class SnakeGame extends JFrame {
         this.timer = new Timer(REFRESH_INTERVAL, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                game.tick();
-                gamePanel.repaint();
+                if (!game.isGameOver()) {
+                    game.tick();
+                    gamePanel.repaint();
+                }
             }
         });
 
@@ -76,29 +75,4 @@ public class SnakeGame extends JFrame {
         return this.game;
     }
 
-    private class GameKeyAdapter extends KeyAdapter {
-        @Override
-        public void keyPressed(KeyEvent e) {
-            int key = e.getKeyCode();
-
-            switch (key) {
-                case KeyEvent.VK_LEFT:
-                    game.getSnake().getHead().setDirection(Direction.EAST);
-                    break;
-                case KeyEvent.VK_RIGHT:
-                    game.getSnake().getHead().setDirection(Direction.WEST);
-                    break;
-                case KeyEvent.VK_UP:
-                    game.getSnake().getHead().setDirection(Direction.NORTH);
-                    break;
-                case KeyEvent.VK_DOWN:
-                    game.getSnake().getHead().setDirection(Direction.SOUTH);
-                    break;
-                case KeyEvent.VK_R:
-                    game.reset();
-                default:
-                    break;
-            }
-        }
-    }
 }

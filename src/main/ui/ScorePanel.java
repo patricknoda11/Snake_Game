@@ -20,7 +20,7 @@ public class ScorePanel extends JPanel implements Observer {
     // MODIFIES:
     // EFFECTS: todo !!!
     private void setupScoreLabel() {
-        this.scoreLabel = new JLabel("Score: -" );
+        this.scoreLabel = new JLabel("Score: " + this.snakeGame.getGame().getScore());
         this.scoreLabel.setForeground(Color.WHITE);
         this.add(this.scoreLabel);
     }

@@ -1,6 +1,7 @@
 package model;
 
 import ui.GamePanel;
+import ui.SnakeGame;
 
 import java.awt.*;
 import java.util.Observable;
@@ -8,7 +9,7 @@ import java.util.Observable;
 // Game class representing
 public class Game extends Observable {
     public static final int START_FOOD_X_POSITION = GamePanel.GAME_PANEL_WIDTH / 2;
-    public static final int START_FOOD_Y_POSITION = GamePanel.GAME_PANEL_HEIGHT / 2 - (GamePanel.GAME_PANEL_HEIGHT * 2 / 15);
+    public static final int START_FOOD_Y_POSITION = GamePanel.GAME_PANEL_HEIGHT / 2 - SnakeGame.UNIT * 5;
 
     private Snake snake = new Snake();
     private Food food = new Food();
