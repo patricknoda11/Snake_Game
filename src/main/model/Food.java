@@ -22,8 +22,7 @@ public class Food {
         this.position = new Position(randomXPosition, randomYPosition);
     }
 
-    // MODIFIES:
-    // EFFECTS: todo
+    // EFFECTS: draws this with specific color and size at this x, y
     public void draw(Graphics g) {
         g.setColor(COLOR);
         g.fillOval(this.position.getX(), this.position.getY(), SnakeGame.UNIT, SnakeGame.UNIT);

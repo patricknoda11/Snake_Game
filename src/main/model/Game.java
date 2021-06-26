@@ -87,15 +87,13 @@ public class Game extends Observable {
         return false;
     }
 
-    // MODIFIES:
-    // EFFECTS: todo !!!
+    // EFFECTS: draws the visual elements of this game
     public void drawGame(Graphics g) {
         drawSnake(g);
         this.food.draw(g);
     }
 
-    // MODIFIES:
-    // EFFECTS: todo !!!
+    // EFFECTS: draws the visual elements, the head and body, of the snake associated with this game
     private void drawSnake(Graphics g) {
         this.snake.getHead().draw(g);
         for (Component c : this.snake.getBody()) {
@@ -103,8 +101,9 @@ public class Game extends Observable {
         }
     }
 
-    // MODIFIES:
-    // EFFECTS: todo !!!
+    // MODIFIES: this
+    // EFFECTS: resets game by instantiating new snake, setting score to 0, generating new food, and setting gameOver
+    //          to false
     public void reset() {
         this.snake = new Snake();
         this.score = 0;
@@ -112,15 +111,13 @@ public class Game extends Observable {
         this.gameOver = false;
     }
 
-    // MODIFIES:
-    // EFFECTS: todo !!
-    public boolean isGameOver() {
-        return this.gameOver;
-    }
-
     // getters
     public Snake getSnake() {
         return this.snake;
+    }
+
+    public boolean isGameOver() {
+        return this.gameOver;
     }
 
     public int getScore() {
