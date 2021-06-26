@@ -5,6 +5,7 @@ import ui.SnakeGame;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Test class for model.Game 
 public class GameTest {
     private Game testGame;
     private Snake testSnake;

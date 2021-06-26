@@ -41,8 +41,7 @@ public class Component {
         this.position.setX(this.position.getX() - SnakeGame.UNIT);
     }
 
-    // MODIFIES:
-    // EFFECTS: todo
+    // EFFECTS: draws this with given colour and size at specific x, y position
     public void draw(Graphics g) {
         g.setColor(SNAKE_COLOR);
         g.fillRect(this.position.getX(), this.position.getY(), SnakeGame.UNIT, SnakeGame.UNIT);

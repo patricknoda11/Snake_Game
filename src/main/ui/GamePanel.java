@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+// Represents a JPanel with given dimensions. Provides the user with the visual representations
 public class GamePanel extends JPanel {
     private static final Color BACKGROUND_COLOR = Color.BLACK;
     public static final int GAME_PANEL_WIDTH = 600;
@@ -20,35 +21,25 @@ public class GamePanel extends JPanel {
         addKeyListener(new GameKeyAdapter());
     }
 
-    // MODIFIES:
-    // EFFECTS: todo !!!
+    // EFFECTS: sets up JPanel by setting background colour and setting it as focusable
     private void setupJPanel() {
         setBackground(BACKGROUND_COLOR);
         setFocusable(true);
     }
 
-    // MODIFIES:
-    // EFFECTS: todo !!!
+    // EFFECTS: if this snake game is not over then draws the game, else draws game over message on screen
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        drawGame(g);
-
-        if (this.snakeGame.getGame().isGameOver()) {
+        if (!this.snakeGame.getGame().isGameOver()) {
+            this.snakeGame.getGame().drawGame(g);
+        } else {
             drawGameOver(g);
         }
     }
 
-    // MODIFIES:
-    // EFFECTS: todo !!!
-    private void drawGame(Graphics g) {
-        this.snakeGame.getGame().drawGame(g);
-    }
-
-
-    // MODIFIES:
-    // EFFECTS: todo !!!
+    // EFFECTS: draws game over message on game panel
     private void drawGameOver(Graphics g) {
         g.setColor(Color.RED);
         g.setFont(new Font("Arial", Font.BOLD, 30));
@@ -61,6 +52,7 @@ public class GamePanel extends JPanel {
                 GAME_PANEL_HEIGHT / 2 + 40);
     }
 
+    // private class that allows user to control snake direction by clicking direction arrows on keyboard
     private class GameKeyAdapter extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
